@@ -1,0 +1,62 @@
+﻿@model ASPNETCore_DB.Models.Student
+@using ASPNETCore_DB
+
+<h1>Details</h1>
+<h4>Student</h4>
+<hr />
+
+@if (Model == null)
+{
+    <p>Student not found.</p>
+    <a asp-action="Create" class="btn btn-primary">Enroll Now</a>
+}
+else
+{
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.StudentNumber)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.StudentNumber)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Surname)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Surname)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.EnrollmentDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.EnrollmentDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Photo)
+        </dt>
+        <dd class="col-sm-10">
+            <div class="col-4">
+                @* use forward slash path and null check *@
+                <img src="/images/@Model.Photo" width="100"
+                     style="border-radius:5px; border:1px solid #bbb" />
+            </div>
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+    </dl>
+
+    <div>
+        <a asp-action="Edit" asp-route-id="@Model.StudentNumber">Edit</a> |
+        <a asp-action="Index">Back to List</a>
+    </div>
+}

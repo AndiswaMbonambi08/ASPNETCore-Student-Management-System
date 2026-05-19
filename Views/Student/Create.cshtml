@@ -1,0 +1,62 @@
+﻿@model ASPNETCore_DB.Models.Student
+@using ASPNETCore_DB
+
+<h1>Enroll</h1>
+<h4>Student</h4>
+<hr />
+
+<form asp-action="Create" method="post" enctype="multipart/form-data">
+    @*  added validation summary so errors show on screen *@
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <div class="form-group">
+        <label asp-for="StudentNumber" class="control-label"></label>
+        <input asp-for="StudentNumber" class="form-control" />
+        <span asp-validation-for="StudentNumber" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="FirstName" class="control-label"></label>
+        <input asp-for="FirstName" class="form-control" />
+        <span asp-validation-for="FirstName" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Surname" class="control-label"></label>
+        <input asp-for="Surname" class="form-control" />
+        <span asp-validation-for="Surname" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="EnrollmentDate" class="control-label"></label>
+        <input asp-for="EnrollmentDate" class="form-control" />
+        <span asp-validation-for="EnrollmentDate" class="text-danger"></span>
+    </div>
+    <div class="form-group row">
+        <div class="col-4">
+            Photo
+            @* use forward slash path *@
+            <img src="/images/@Model.Photo" width="100"
+                 style="border-radius:5px; border:1px solid #bbb" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="Email" class="control-label"></label>
+        <input asp-for="Email" class="form-control" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+    <br />
+    <div class="form-group row">
+        <div class="col-8">
+            @*  removed "multiple", only one photo needed *@
+            <input type="file" name="files" id="uploadBox" class="form-control" />
+        </div>
+    </div>
+    <br />
+    <div class="form-group">
+        <input type="submit" value="Submit" class="btn btn-primary" />
+    </div>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

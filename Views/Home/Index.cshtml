@@ -1,0 +1,30 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Student Management System</h1>
+</div>
+
+@if (SignInManager.IsSignedIn(User))
+{
+    var currentUser = await UserManager.GetUserAsync(User);
+
+   
+    if (currentUser != null)
+    {
+        var roles = await UserManager.GetRolesAsync(currentUser);
+
+        <div class="text-center mt-4">
+            <h2>User Logged In Information:</h2>
+            <p>User Id: @currentUser.Id</p>
+            <p>User Name: @currentUser.Email</p>
+            <p>User Role: @roles.FirstOrDefault()</p>
+        </div>
+    }
+    
+}

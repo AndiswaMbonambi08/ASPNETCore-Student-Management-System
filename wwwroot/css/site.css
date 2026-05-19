@@ -1,0 +1,161 @@
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+    background-color: #ffffff;
+    color: #2d6a4f;
+}
+
+
+.navbar {
+    background-color: #52b788 !important;
+    border-bottom: 2px solid #40916c !important;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.navbar-brand {
+    color: #ffffff !important;
+    font-weight: bold;
+    font-size: 1.3rem;
+}
+
+    .navbar-brand:hover {
+        color: #d8f3dc !important;
+    }
+
+.nav-link {
+    color: #ffffff !important;
+    font-weight: 500;
+}
+
+    .nav-link:hover {
+        color: #d8f3dc !important;
+    }
+
+.navbar-toggler {
+    border-color: #ffffff;
+}
+
+
+.btn-primary {
+    background-color: #40916c;
+    border-color: #2d6a4f;
+    color: #ffffff;
+}
+
+    .btn-primary:hover {
+        background-color: #2d6a4f;
+        border-color: #1b4332;
+        color: #ffffff;
+    }
+
+.btn-danger {
+    background-color: #e63946;
+    border-color: #c1121f;
+}
+
+.btn-default {
+    background-color: #d8f3dc;
+    border-color: #52b788;
+    color: #2d6a4f;
+}
+
+    .btn-default:hover {
+        background-color: #b7e4c7;
+        border-color: #40916c;
+        color: #1b4332;
+    }
+
+
+.container {
+    background-color: #ffffff;
+}
+
+.table thead tr {
+    background-color: #52b788;
+    color: #ffffff;
+}
+
+.table thead th {
+    color: #ffffff;
+    border-color: #40916c;
+}
+
+.table tbody tr:hover {
+    background-color: #d8f3dc;
+}
+
+.table-bordered {
+    border-color: #b7e4c7;
+}
+
+
+.form-control:focus {
+    border-color: #52b788;
+    box-shadow: 0 0 0 0.2rem rgba(82, 183, 136, 0.25);
+}
+
+.form-control {
+    border-color: #b7e4c7;
+}
+
+label {
+    color: #2d6a4f;
+    font-weight: 500;
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+    color: #2d6a4f;
+}
+
+
+a {
+    color: #40916c;
+}
+
+    a:hover {
+        color: #1b4332;
+    }
+
+
+.footer {
+    background-color: #52b788;
+    color: #ffffff;
+    padding: 10px 0;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+    .footer a {
+        color: #d8f3dc;
+    }
+
+        .footer a:hover {
+            color: #ffffff;
+        }
+
+.text-danger {
+    color: #e63946 !important;
+}
+
+
+.btn.disabled, .btn[disabled] {
+    background-color: #b7e4c7;
+    border-color: #b7e4c7;
+    color: #ffffff;
+}

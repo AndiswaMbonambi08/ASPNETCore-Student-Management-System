@@ -1,0 +1,14 @@
+This project was updated to a .NET 8-aligned package set.
+
+Changes made:
+- TargetFramework changed from net6.0 to net8.0
+- Entity Framework Core packages aligned to 8.0.0
+- Microsoft.VisualStudio.Web.CodeGeneration.Design aligned to 8.0.0
+- Microsoft.AspNetCore.Identity.EntityFrameworkCore 8.0.0 added to support Identity scaffolding
+- .vs, bin, and obj folders removed from the package to avoid machine-specific build artifacts
+
+Next steps:
+1. Open the solution in Visual Studio
+2. Restore NuGet packages
+3. Build the solution
+4. Retry Identity scaffolding

@@ -1,0 +1,106 @@
+﻿@model ASPNETCore_DB.PaginatedList<ASPNETCore_DB.Models.Student>
+@using ASPNETCore_DB
+
+<h1>Index</h1>
+<p><a asp-action="Create">Create New</a></p>
+
+<form asp-action="Index" method="get">
+    <div class="form-actions no-color">
+        <p>
+            Find by Student Number:
+            <input type="text" name="searchString"
+                   value="@ViewData["CurrentFilter"]" />
+            <input type="submit" value="Search"
+                   class="btn btn-default" /> |
+            <a asp-action="Index">Back to Full List</a>
+        </p>
+    </div>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <a asp-action="Index"
+                   asp-route-sortOrder="@ViewData["StudentNumberSortParm"]"
+                   asp-route-currentFilter="@ViewData["CurrentFilter"]">
+                    Student Number
+                </a>
+            </th>
+            <th>First Name</th>
+            <th>
+                <a asp-action="Index"
+                   asp-route-sortOrder="@ViewData["NameSortParm"]"
+                   asp-route-currentFilter="@ViewData["CurrentFilter"]">
+                    Surname
+                </a>
+            </th>
+            <th>
+                <a asp-action="Index"
+                   asp-route-sortOrder="@ViewData["DateSortParm"]"
+                   asp-route-currentFilter="@ViewData["CurrentFilter"]">
+                    Enrollment Date
+                </a>
+            </th>
+            <th>Photo</th>
+            <th>Email</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StudentNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Surname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EnrollmentDate)
+                </td>
+                <td width="25%">
+                    <img src="@WebConstants.ImagePath@item.Photo"
+                         width="100"
+                         style="border-radius:5px; border:1px solid #bbb" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    <a asp-action="Edit"
+                       asp-route-id="@item.StudentNumber">Edit</a> |
+                    <a asp-action="Details"
+                       asp-route-id="@item.StudentNumber">Details</a> |
+                    <a asp-action="Delete"
+                       asp-route-id="@item.StudentNumber">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div>
+    @{
+        var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+        var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+    }
+    <a asp-action="Index"
+       asp-route-sortOrder="@ViewData["CurrentSort"]"
+       asp-route-pageNumber="@(Model.PageIndex - 1)"
+       asp-route-currentFilter="@ViewData["CurrentFilter"]"
+       class="btn btn-default @prevDisabled">
+        Previous
+    </a>
+    <a asp-action="Index"
+       asp-route-sortOrder="@ViewData["CurrentSort"]"
+       asp-route-pageNumber="@(Model.PageIndex + 1)"
+       asp-route-currentFilter="@ViewData["CurrentFilter"]"
+       class="btn btn-default @nextDisabled">
+        Next
+    </a>
+</div>
