@@ -32,4 +32,5 @@ with Identity Authentication and Role-Based Authorization.
 5. Register a new account to access User features
 
 ## Screenshots
+<img width="1859" height="1022" alt="Screenshot_23-5-2026_142639_localhost" src="https://github.com/user-attachments/assets/83a616d4-8f0e-4200-88a0-3ace32fed239" />
 
